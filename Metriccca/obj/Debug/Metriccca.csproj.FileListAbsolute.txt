@@ -1,0 +1,23 @@
+E:\CSharp_Projects\Metriccca\Metriccca\bin\Debug\Metriccca.exe.config
+E:\CSharp_Projects\Metriccca\Metriccca\bin\Debug\Metriccca.exe
+E:\CSharp_Projects\Metriccca\Metriccca\bin\Debug\Metriccca.pdb
+E:\CSharp_Projects\Metriccca\Metriccca\obj\Debug\Metriccca.Form1.resources
+E:\CSharp_Projects\Metriccca\Metriccca\obj\Debug\Metriccca.Properties.Resources.resources
+E:\CSharp_Projects\Metriccca\Metriccca\obj\Debug\Metriccca.csproj.GenerateResource.Cache
+E:\CSharp_Projects\Metriccca\Metriccca\obj\Debug\Metriccca.exe
+E:\CSharp_Projects\Metriccca\Metriccca\obj\Debug\Metriccca.pdb
+E:\CSharp_Projects\Metriccca\Metriccca\obj\Debug\Metriccca.csprojResolveAssemblyReference.cache
+D:\OS\Metriccca\Metriccca\bin\Debug\Metriccca.exe.config
+D:\OS\Metriccca\Metriccca\obj\Debug\Metriccca.exe
+D:\OS\Metriccca\Metriccca\obj\Debug\Metriccca.pdb
+E:\Users\Taras\Documents\Visual Studio 2012\Projects\Metriccca\Metriccca\bin\Debug\Metriccca.exe.config
+E:\Users\Taras\Documents\Visual Studio 2012\Projects\Metriccca\Metriccca\obj\Debug\Metriccca.exe
+E:\Users\Taras\Documents\Visual Studio 2012\Projects\Metriccca\Metriccca\obj\Debug\Metriccca.pdb
+E:\Users\Taras\Documents\Visual Studio 2012\Projects\Metriccca\Metriccca\bin\Debug\Metriccca.exe
+E:\Users\Taras\Documents\Visual Studio 2012\Projects\Metriccca\Metriccca\bin\Debug\Metriccca.pdb
+E:\Users\Taras\Documents\Visual Studio 2012\Projects\Metriccca\Metriccca\obj\Debug\Metriccca.csprojResolveAssemblyReference.cache
+E:\Users\Taras\Documents\Visual Studio 2012\Projects\Metriccca\Metriccca\obj\Debug\Metriccca.Form1.resources
+E:\Users\Taras\Documents\Visual Studio 2012\Projects\Metriccca\Metriccca\obj\Debug\Metriccca.Properties.Resources.resources
+E:\Users\Taras\Documents\Visual Studio 2012\Projects\Metriccca\Metriccca\obj\Debug\Metriccca.csproj.GenerateResource.Cache
+E:\Users\Taras\Documents\Visual Studio 2012\Projects\Metriccca\Metriccca\obj\Debug\Metriccca.SettingsForm.resources
+E:\CSharp_Projects\Metriccca\Metriccca\obj\Debug\Metriccca.SettingsForm.resources

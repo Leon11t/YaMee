@@ -1,0 +1,10 @@
+E:\Users\Taras\Documents\Visual Studio 2012\Projects\Metriccca\Metriccca\obj\Release\Metriccca.csprojResolveAssemblyReference.cache
+E:\Users\Taras\Documents\Visual Studio 2012\Projects\Metriccca\Metriccca\obj\Release\Metriccca.Form1.resources
+E:\Users\Taras\Documents\Visual Studio 2012\Projects\Metriccca\Metriccca\obj\Release\Metriccca.Properties.Resources.resources
+E:\Users\Taras\Documents\Visual Studio 2012\Projects\Metriccca\Metriccca\obj\Release\Metriccca.SettingsForm.resources
+E:\Users\Taras\Documents\Visual Studio 2012\Projects\Metriccca\Metriccca\obj\Release\Metriccca.csproj.GenerateResource.Cache
+E:\Users\Taras\Documents\Visual Studio 2012\Projects\Metriccca\Metriccca\bin\Release\YaMee.exe.config
+E:\Users\Taras\Documents\Visual Studio 2012\Projects\Metriccca\Metriccca\bin\Release\YaMee.exe
+E:\Users\Taras\Documents\Visual Studio 2012\Projects\Metriccca\Metriccca\bin\Release\YaMee.pdb
+E:\Users\Taras\Documents\Visual Studio 2012\Projects\Metriccca\Metriccca\obj\Release\YaMee.exe
+E:\Users\Taras\Documents\Visual Studio 2012\Projects\Metriccca\Metriccca\obj\Release\YaMee.pdb
