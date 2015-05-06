@@ -49,7 +49,7 @@ namespace Metriccca.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("60")]
+        [global::System.Configuration.DefaultSettingValueAttribute("30")]
         public int Timer1_var {
             get {
                 return ((int)(this["Timer1_var"]));
@@ -109,7 +109,7 @@ namespace Metriccca.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
         public bool DateAuto {
             get {
                 return ((bool)(this["DateAuto"]));
@@ -122,60 +122,24 @@ namespace Metriccca.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("10")]
-        public double Transparenci_var {
+        public int trackBar_var {
             get {
-                return ((double)(this["Transparenci_var"]));
+                return ((int)(this["trackBar_var"]));
             }
             set {
-                this["Transparenci_var"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public string visits {
-            get {
-                return ((string)(this["visits"]));
-            }
-            set {
-                this["visits"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public string page_views {
-            get {
-                return ((string)(this["page_views"]));
-            }
-            set {
-                this["page_views"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public string visitors {
-            get {
-                return ((string)(this["visitors"]));
-            }
-            set {
-                this["visitors"] = value;
+                this["trackBar_var"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("10")]
-        public int tarckBar_var {
+        public double Transparenci_var {
             get {
-                return ((int)(this["tarckBar_var"]));
+                return ((double)(this["Transparenci_var"]));
             }
             set {
-                this["tarckBar_var"] = value;
+                this["Transparenci_var"] = value;
             }
         }
     }

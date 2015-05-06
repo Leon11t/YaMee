@@ -34,7 +34,8 @@ namespace Metriccca
             tBoxDate2.Text = ps.Date2;
 
             checBoxDateAuto.Checked = ps.DateAuto;
-            trackBarTranspatenci.Value = ps.tarckBar_var;
+            trackBarTranspatenci.Value = ps.trackBar_var;
+
         }
 
         private void checBoxDateAuto_CheckedChanged(object sender, EventArgs e)//Вмикає щитування дати із системи, або введення в ручну
@@ -65,7 +66,7 @@ namespace Metriccca
             double formOPacity = Convert.ToDouble(((trackBarTranspatenci.Value) / 10.0));
             parentForm.Opacity = formOPacity;
             ps.Transparenci_var = formOPacity;
-            ps.tarckBar_var = trackBarTranspatenci.Value;
+            ps.trackBar_var = trackBarTranspatenci.Value;
         }
 
         private void tBoxTocen_TextChanged(object sender, EventArgs e)

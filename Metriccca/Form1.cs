@@ -1,68 +1,62 @@
 ﻿using System;
-using System.Xml;
-using System.Windows.Forms;
+using System.Drawing;
+using System.Runtime.InteropServices;
 using System.Threading;
+using System.Windows.Forms;
 
 
 namespace Metriccca
 {
+   
     public partial class Form1 : Form
     {
-        private class MyClass
-        {
-            public static string visits_var, page_views_var, visitors_var;
+        const int DISTANCE = 7; //Задає відстань прилипання у пікселях 
 
-            public static void Yandex_Request()
-            {
-                Properties.Settings ps = Properties.Settings.Default;
-                String xmlUrl = "http://api-metrika.yandex.ru/stat/traffic/summary?id=" + ps.CounterID + "&date1=" +
-                                ps.Date1 + "&date2=" + ps.Date2 + "&oauth_token=" + ps.YaTocen;
-
-                XmlReader xmlReader = XmlReader.Create(xmlUrl);
-                XmlDocument xml = new XmlDocument();
-
-                xml.Load(xmlReader);
-                xmlWorker(xml);
-            }
-
-            public static void xmlWorker(XmlDocument xml)
-            {
-                
-                Properties.Settings ps = Properties.Settings.Default;
-                XmlNode xmlNode = xml.GetElementsByTagName("totals").Item(0);
-
-                if (xmlNode != null)
-                    foreach (XmlNode node in xmlNode.ChildNodes)
-                    {
-
-                        switch (node.Name)
-                        {
-                            case "visits":
-                                visits_var = node.InnerText;
-                                break;
-                            case "page_views":
-                                page_views_var = node.InnerText;
-                                break;
-                            case "visitors":
-                                visitors_var = node.InnerText;
-                                break;
-                        }
-
-                    }
-            }
-
-        }
-
-
-public Form1()
+        public Form1()
         {
             InitializeComponent();
-            
+
             CheckForIllegalCrossThreadCalls = false; //Відкриття фортми налаштувань
             notifyIcon1.Visible = false; //Згортає програму в трей
-
-            
         }
+
+        public void LableDataUpdate()
+        {
+            label1.Text = Yandex.page_views_var;
+            label2.Text = Yandex.visits_var;
+            label3.Text = Yandex.visitors_var;
+
+            notifyIcon1.Text = "Переглядів: " + Yandex.page_views_var
+                               + "\nВізитів: " + Yandex.visits_var
+                               + "\nВідвідувачів: " + Yandex.visitors_var;
+        }
+
+        //Ефект прилипання форми до країв екрана
+        protected override void WndProc(ref Message m)
+            {
+                if (m.Msg == 0x0046 /* WM_WINDOWPOSCHANGING */)
+                {
+                    Rectangle workArea = SystemInformation.WorkingArea;
+                    Rectangle rect =
+                        (Rectangle)
+                            Marshal.PtrToStructure((IntPtr) (IntPtr.Size*2 + m.LParam.ToInt64()), typeof (Rectangle));
+
+                    if (rect.X <= workArea.Left + DISTANCE)
+                        Marshal.WriteInt32(m.LParam, IntPtr.Size*2, workArea.Left);
+
+                    if (rect.X + rect.Width >= workArea.Width - DISTANCE)
+                        Marshal.WriteInt32(m.LParam, IntPtr.Size*2, workArea.Right - rect.Width);
+
+                    if (rect.Y <= workArea.Top + DISTANCE)
+                        Marshal.WriteInt32(m.LParam, IntPtr.Size*2 + 4, workArea.Top);
+
+                    if (rect.Y + rect.Height >= workArea.Height - DISTANCE)
+                        Marshal.WriteInt32(m.LParam, IntPtr.Size*2 + 4, workArea.Bottom - rect.Height);
+                }
+
+                base.WndProc(ref m);
+            }
+        
 
 
         private void Form1_Load(object sender, EventArgs e)
@@ -72,18 +66,18 @@ public Form1()
             Left = ps.Left;
 
             Opacity = ps.Transparenci_var; //Задає прозорість форми
+            
 
             timer1.Interval = (60000*ps.Timer1_var);//Задає час оновлення данних
             timer1.Start();
-            
-            
-
+            Yandex.Request();//Читає данні із сервера при завантаженні форми
         }
 
         private void btn_sett_Click(object sender, EventArgs e)
         {
             var sett = new SettingsForm(this); //Відкриття фортми налаштувань
-            sett.Show();
+            sett.ShowDialog();
+            //sett.Show();
         }
 
         private void notifyIcon1_MouseDoubleClick(object sender, MouseEventArgs e) //Згортає програму в трей
@@ -94,6 +88,12 @@ public Form1()
             //разворачиваем окно
             WindowState = FormWindowState.Normal;
 
+        }
+
+        private void notifyIcon1_MouseClick(object sender, MouseEventArgs e)
+        {
+            Yandex.Request();
+            LableDataUpdate();
         }
 
         private void Form1_Resize(object sender, EventArgs e) //Згортає програму в трей
@@ -141,7 +141,9 @@ public Form1()
         {
             try
             {
-                MyClass.Yandex_Request();
+                Yandex.Request();
+                LableDataUpdate();
+
             }
             catch (Exception)
             {
@@ -149,20 +151,16 @@ public Form1()
                 MessageBox.Show("Перевірте з'єднання з мережею", "Сталась помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 timer1.Stop();
             }
-            label1.Text = MyClass.page_views_var;
-            label2.Text = MyClass.visits_var;
-            label3.Text = MyClass.visitors_var;
 
-            notifyIcon1.Text = "Яндекс Метрика" + "\nПереглядів: " + MyClass.page_views_var
-                                                + "\nВізитів: " + MyClass.visits_var
-                                                + "\nВідвідувачів: " + MyClass.visitors_var;
         }
 
         private void btn_Refresh_Click(object sender, EventArgs e)//Відсилання запиту по кнопці
         {
             try
             {
-                 MyClass.Yandex_Request();
+                 Yandex.Request();
+                 LableDataUpdate();
+                 
             }
             catch (Exception)
             {
@@ -170,10 +168,7 @@ public Form1()
                 MessageBox.Show("Перевірте з'єднання з мережею", "Сталась помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 timer1.Stop();
             }
-           
-            label1.Text = MyClass.page_views_var;
-            label2.Text = MyClass.visits_var;
-            label3.Text = MyClass.visitors_var;
+
         }
 
         private void btn_Attach_Click(object sender, EventArgs e)//Закріплює форму поверх всіх вікон
@@ -181,25 +176,32 @@ public Form1()
             TopMost ^= true; //Інвертує значення при кожному натисненні на кнопку
         }
 
-        private void Form1_MouseEnter(object sender, EventArgs e)//Плавне просвітлення форми !!!!!!!!!!!!!!!!!!!!!!!!!!
-        {
 
-            //for (int i=0; i < 10; i++)
-            //{
-            //    Thread.Sleep(60);
-            //    Opacity = Opacity+0.1;
-            //}
-            
-        }
+        //public double Opas_var;
+        //private void Form1_MouseEnter(object sender, EventArgs e)//Плавне просвітлення форми !!!!!!!!!!!!!!!!!!!!!!!!!!
+        //{
 
-        private void Form1_MouseLeave(object sender, EventArgs e)
-        {
-            //for (int i = 0; i < 6; i++)
-            //{
-            //    Thread.Sleep(60);
-            //    Opacity = Opacity - 0.1;
-            //}
-        }
+        //    for (int i = 0; i < 10; i++)
+        //    {
+        //        Thread.Sleep(60);
+        //        Opacity = Opacity + 0.1;
+                 
+        //    }
+
+        //}
+
+        //private void Form1_MouseLeave(object sender, EventArgs e)
+        //{
+        //    Properties.Settings ps = Properties.Settings.Default;
+        //    for (int i = 0; i < 6; i++)
+        //    {
+        //        Thread.Sleep(60);  
+        //       ps.Transparenci_var = Opacity-0.1;
+        //    }
+        //}
+
+
+
 
     }
 

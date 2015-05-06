@@ -9,7 +9,7 @@
       <Value Profile="(Default)">0</Value>
     </Setting>
     <Setting Name="Timer1_var" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">60</Value>
+      <Value Profile="(Default)">30</Value>
     </Setting>
     <Setting Name="YaTocen" Type="System.String" Scope="User">
       <Value Profile="(Default)">05dd3dd84ff948fdae2bc4fb91f13e22</Value>
@@ -24,21 +24,12 @@
       <Value Profile="(Default)">20140721</Value>
     </Setting>
     <Setting Name="DateAuto" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">False</Value>
+      <Value Profile="(Default)">True</Value>
     </Setting>
-    <Setting Name="Transparenci_var" Type="System.Double" Scope="User">
+    <Setting Name="trackBar_var" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">10</Value>
     </Setting>
-    <Setting Name="visits" Type="System.String" Scope="User">
-      <Value Profile="(Default)">0</Value>
-    </Setting>
-    <Setting Name="page_views" Type="System.String" Scope="User">
-      <Value Profile="(Default)">0</Value>
-    </Setting>
-    <Setting Name="visitors" Type="System.String" Scope="User">
-      <Value Profile="(Default)">0</Value>
-    </Setting>
-    <Setting Name="tarckBar_var" Type="System.Int32" Scope="User">
+    <Setting Name="Transparenci_var" Type="System.Double" Scope="User">
       <Value Profile="(Default)">10</Value>
     </Setting>
   </Settings>
